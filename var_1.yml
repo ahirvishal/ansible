@@ -1,0 +1,19 @@
+---
+ - name: First Part
+   hosts: web
+    #  vars:
+    #    vishal: httpd
+   vars_files:
+      - variable.yml
+   tasks:
+     - name: On web server
+       yum: 
+            name: "{{ vishal }}"
+            state: latest
+       become: yes
+     - name: start service
+       service: 
+                name: "{{ vishal }}"
+                state: started
+       become: yes
+            
