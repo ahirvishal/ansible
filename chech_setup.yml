@@ -7,6 +7,11 @@
             - "{{ ansible_facts.architecture }}"
             - "{{ ansible_facts.all_ipv4_addresses }}"
    tasks:
+        - yum:
+             name: httpd
+             state: latest~~
+          register: install_result
+        - debug: var=install_result
         - name: print hostname
           debug:   
               msg: "{{ item }}"
