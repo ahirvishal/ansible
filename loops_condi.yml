@@ -1,0 +1,13 @@
+---
+ - name: condi yaml
+   hosts: all
+   tasks:
+          - service:  
+                name: "{{ item }}"
+                state: reloaded  
+            loop:
+                - httpd
+                - vsftpd
+            while: ansible_facts.hostname == "ip-172-31-50-173"
+
+#problem in while
