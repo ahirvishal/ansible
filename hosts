@@ -20,9 +20,6 @@ node1
 [db]
 node2
 
-[servers:children]
-web
-db
 
 #[local]
 #control ansible_connection=local 
